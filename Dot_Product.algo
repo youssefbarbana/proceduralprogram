@@ -1,0 +1,42 @@
+ALGORITHM dot__product
+VAR
+    n,i : INTEGER; // array length 
+    ps : INTEGER := 0;
+    vecteur1 : ARRAY_OF INTEGER[3];
+    vecteur2 : ARRAY_OF INTEGER[3];
+
+BEGIN
+
+    FUNCTION dot_product(var vect1[], var vect2[]){
+        VAR 
+            ps : INTEGER := 0;
+            i : INTEGER;
+        FOR i FROM 0 TO vect1.length STEP 1  DO
+            ps := ps + vect1[i]*vect2[i];
+        END_FOR
+
+        return ps;
+    }
+    
+    Write("The array length : ");
+    Read(n);
+    Write("First array")
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Read(vecteur1[i]);
+    END_FOR
+    FOR i FROM 0 TO n-1 STEP 1  DO
+        Read(vecteur2[i]);
+    END_FOR
+    WHILE (i < n) DO
+        j := i + 1;
+        WHILE (j < n) DO
+            ps := dot_product(vecteur1[i],vecteur2[j])
+            IF (ps == 0) THEN
+                Write("The two vectors are orthogonal");
+            ElSE 
+                Write("The two vectors are not orthogonal");
+            END_IF
+        END_WHILE
+    END_WHILE
+
+END
